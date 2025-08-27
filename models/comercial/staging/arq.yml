@@ -1,0 +1,259 @@
+version: 2
+
+sources:
+  - name: banvic
+    description: "Essa é a fonte de dados do Snowflake."
+    database: BANVIC_DB
+    schema: BANVIC_DB_PUBLIC
+    tables:
+      - name: AGENCIAS
+        description: "Tabela com as agencias."
+        columns:
+          - name: COD_AGENCIA
+            description: "Coluna de id das agencias."
+            tests:
+              - unique
+              - not_null
+          - name: NOME
+            description: "Coluna com nomes de agencias."
+            tests:
+              - unique
+              - not_null
+          - name: ENDERECO
+            description: "Coluna com enderecos das agencias."
+            tests:
+              - unique
+              - not_null
+          - name: CIDADE
+            description: "Coluna com as cidades das agencias."
+            tests:
+              - unique
+              - not_null
+          - name: UF
+            description: "Coluna com os estados das agencias."
+            tests:
+              - unique
+              - not_null
+          - name: DATA_ABERTURA
+            description: "Coluna com as datas."
+            tests:
+              - unique
+              - not_null
+          - name: TIPO_AGENCIA
+            description: "Coluna com o tipo de agencia."
+            tests:
+              - unique
+              - not_null
+      - name: CLIENTES
+        description: "Tabela com os dados dos clientes."
+        columns:
+          - name: COD_CLIENTES
+            description: "Coluna de id dos clientes."
+            tests:
+              - unique
+              - not_null
+          - name: PRIMEIRO_NOME
+            description: "Coluna com primeiro nome dos clientes."
+            tests:
+              - unique
+              - not_null
+          - name: ULTIMO_NOME
+            description: "Coluna com sobremome nome dos clientes."
+            tests:
+              - unique
+              - not_null
+          - name: TIPO_CLIENTE
+            description: "Coluna com o tipo de cliente."
+            tests:
+              - unique
+              - not_null
+          - name: DATA_INCLUSAO
+            description: "Coluna com a data de inclusao dos clientes."
+            tests:
+              - unique
+              - not_null
+          - name: DATA_NASCIMENTO
+            description: "Coluna com a data de nascimento dos clientes."
+            tests:
+              - unique
+              - not_null
+          - name: ENDERECO
+            description: "Coluna com o endereco dos clientes."
+            tests:
+              - unique
+              - not_null
+          - name: CEP
+            description: "Coluna com o CEP dos clientes."
+            tests:
+              - unique
+              - not_null
+      - name: COLABORADOR_AGENCIA
+        description: "Tabela com os dados dos colaboradores e agencias."
+        columns:
+          - name: COD_COLABORADOR
+            description: "Coluna de id dos colaborador."
+            tests:
+              - unique
+              - not_null
+          - name: COD_AGENCIA
+            description: "Coluna com id da agencia."
+            tests:
+              - unique
+              - not_null
+      - name: COLABORADORES
+        description: "Tabela com os dados dos colaboradores."
+        columns:
+          - name: COD_COLABORADOR
+            description: "Coluna de id dos colaborador."
+            tests:
+              - unique
+              - not_null
+          - name: PRIMEIRO_NOME
+            description: "Coluna com primeiro nome dos colaboradores."
+            tests:
+              - unique
+              - not_null
+          - name: ULTIMO_NOME
+            description: "Coluna com ultimo nome dos colaboradores."
+            tests:
+              - unique
+              - not_null
+      - name: CONTAS
+        description: "Tabela com os dados das contas."
+        columns:
+          - name: NUM_CONTA
+            description: "Coluna de id das contas."
+            tests:
+              - unique
+              - not_null
+          - name: COD_CLIENTE
+            description: "Coluna com o id dos clientes."
+            tests:
+              - unique
+              - not_null
+          - name: COD_AGENCIA
+            description: "Coluna com o id das agencias."
+            tests:
+              - unique
+              - not_null
+          - name: COD_COLABORADOR
+            description: "Coluna com o id dos colaboradores."
+            tests:
+              - unique
+              - not_null
+          - name: TIPO_CONTA
+            description: "Coluna com o tipo de conta dos clientes."
+            tests:
+              - unique
+              - not_null
+          - name: DATA_ABERTURA
+            description: "Coluna com a data de abertura."
+            tests:
+              - unique
+              - not_null
+          - name: SALDO_TOTAL
+            description: "Coluna com o saldo total."
+            tests:
+              - unique
+              - not_null
+          - name: SALDO_DISPONICEL
+            description: "Coluna com o saldo disponivel."
+            tests:
+              - unique
+              - not_null
+          - name: DATA_ULTIMO_LANCAMENTO
+            description: "Coluna com a data do ultimo lancamento."
+            tests:
+              - unique
+              - not_null
+      - name: PROPOSTAS_CREDITO
+        description: "Tabela com os dados das propostas de credito."
+        columns:
+          - name: COD_PROPOSTAS
+            description: "Coluna de id das propostas."
+            tests:
+              - unique
+              - not_null
+          - name: COD_CLIENTE
+            description: "Coluna com o id dos clientes."
+            tests:
+              - unique
+              - not_null
+          - name: COD_COLABORADOR
+            description: "Coluna com o id das colaboraddores."
+            tests:
+              - unique
+              - not_null
+          - name: DATA_ENTRADA_PROPOSTA
+            description: "Coluna com a data da proposta."
+            tests:
+              - unique
+              - not_null
+          - name: TAXA_JUROS_MENSAL
+            description: "Coluna com a taxa de juros da proposta."
+            tests:
+              - unique
+              - not_null
+          - name: VALOR_PROPOSTA
+            description: "Coluna com o valor da proposta."
+            tests:
+              - unique
+              - not_null
+          - name: VALOR_FINANCIAMENTO
+            description: "Coluna com o valor do financiamento."
+            tests:
+              - unique
+              - not_null
+          - name: VALOR_ENTRADA
+            description: "Coluna com o valor de entrada."
+            tests:
+              - unique
+              - not_null
+          - name: VALOR_PRESTACAO
+            description: "Coluna com o valor da prestacao."
+            tests:
+              - unique
+              - not_null
+          - name: QUANTIDADE_PARCELAS
+            description: "Coluna com a quantidade de parcelas."
+            tests:
+              - unique
+              - not_null
+          - name: CARENCIA
+            description: "Coluna com o numero de carencias."
+            tests:
+              - unique
+              - not_null
+          - name: STATUS_PROPOSTA
+            description: "Coluna com o status da proposta."
+            tests:
+              - unique
+              - not_null
+      - name: TRANSACOES
+        description: "Tabela com os dados das transacoes."
+        columns:
+          - name: COD_TRANSACAO
+            description: "Coluna com o id de transacao."
+            tests:
+              - unique
+              - not_null
+          - name: NUM_CONTA
+            description: "Coluna com o id das contas."
+            tests:
+              - unique
+              - not_null
+          - name: DATA_TRANSACAO
+            description: "Coluna com a data de transacao."
+            tests:
+              - unique
+              - not_null
+          - name: NOME_TRANSACAO
+            description: "Coluna com nome da transacao."
+            tests:
+              - unique
+              - not_null
+          - name: VALOR_TRANSACAO
+            description: "Coluna com o valor da transacao."
+            tests:
+              - unique
+              - not_null
