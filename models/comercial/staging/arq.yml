@@ -257,3 +257,16 @@ sources:
             tests:
               - unique
               - not_null
+      - name: PTAX
+        description: "Tabela com os dados da taxa de cambio."
+        columns:
+          - name: PTX
+            description: "Coluna com os valores do cambio."
+            tests:
+              - unique
+              - not_null
+          - name: DATAHORACOTACAO
+            description: "Coluna com as datas."
+            tests:
+              - unique
+              - not_null
