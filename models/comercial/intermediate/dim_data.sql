@@ -5,7 +5,7 @@ with TRANSACOES as (
     , tr.data_transacao
     , tr.nome_transacao
     , tr.valor_transacao
-    , ptax.valor_cambio
+    , ptax.valor_cambio as valor_cambio
     
     
     from {{ref('transacoes')}} tr
