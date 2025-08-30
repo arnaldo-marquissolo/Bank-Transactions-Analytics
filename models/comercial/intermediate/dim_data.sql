@@ -8,7 +8,7 @@ with TRANSACOES as (
     , ptax.valor_cambio as valor_cambio
     
     
-    from {{ref('transacoes')}} tr
-    left join {{ref("ptax")}} ptax on ptax.data_cambio = (select max(data_cambio) from {{ref("ptax")}} where data_cambio <= tr.data_transacao)
+    from {{ref('stg_transacoes')}} tr
+    left join {{ref("stg_ptax")}} ptax on ptax.data_cambio = (select max(data_cambio) from {{ref("stg_ptax")}} where data_cambio <= tr.data_transacao)
 )
-select * from TRANSACOES order by data_transacao
+select * from TRANSACOES

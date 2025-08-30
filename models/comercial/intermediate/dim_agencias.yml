@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: dim_agencia
+    description: "Dimensão relacionada aos dados de agencias."
+    columns:
+      - name: pk_agencia
+        description: "Representa a chave primaria para buscar a agencia."
+        tests:
+          - unique
+          - not_null
+
+      - name: nome_da_agencia
+        description: "Representa a chave utilizada para trazer o nome da agencia."
+        tests:
+          - not_null
+
+      - name: endereco
+        description: "Representa os enderecos das agencias."
+        tests:
+          - not_null
+
+      - name: cidade
+        description: "Representa a cidade da agencia."
+        tests:
+          - not_null
+
+      - name: estado
+        description: "Representa o estado das agencias."
+        tests:
+          - not_null
+      
+      - name: tipo_agencia
+        description: "Representa qual é o tipo de agencia."
+        tests:
+          - not_null
+
+      - name: fk_colaborador
+        description: "Representa a chave estrangeira de cada colaborador."
+        tests:
+          - not_null
+
+      - name: nome_completo_colaborador
+        description: "Representa os nomes dos colaboradores."
+        tests:
+          - not_null

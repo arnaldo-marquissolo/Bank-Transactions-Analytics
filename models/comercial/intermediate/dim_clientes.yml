@@ -1,0 +1,81 @@
+version: 2
+
+models:
+  - name: dim_clientes
+    description: "Dimensão relacionada aos dados dos clientes do banco."
+    columns:
+      - name: pk_cliente
+        description: "Representa a chave primaria para buscar o cliente."
+        tests:
+          - unique
+          - not_null
+
+      - name: nome_completo_cliente
+        description: "Representa o nome completo de cada cliente."
+        tests: 
+          - not_null
+
+      - name: tipo_de_cliente
+        description: "Representa a chave para o tipo de conta de cada cliente."
+        tests:
+          - not_null
+
+      - name: data_nascimento_cliente
+        description: "Representa a data de nascimento dos clientes."
+        tests:
+          - not_null
+
+      - name: pk_conta
+        description: "Representa a chave primaria da conta."
+        tests:
+          - not_null
+      
+      - name: fk_agencia
+        description: "Representa a chave estrangeira das agencia."
+        tests:
+          - not_null
+
+      - name: fk_colaborador
+        description: "Representa a chave estrangeira de cada colaborador."
+        tests:
+          - not_null
+
+      - name: tipo_conta
+        description: "Representa o tipo de conta."
+        tests:
+          - not_null
+
+      - name: saldo_total
+        description: "Representa o saldo total de cada conta."
+        tests:
+          - not_null
+      
+      - name: saldo_disponivel
+        description: "Representa o saldo disponivel de cada conta."
+        tests:
+          - not_null
+
+      - name: data_ultimo_lancamento
+        description: "Representa a data do ultimo lancamento de cada conta."
+        tests:
+          - not_null
+      
+      - name: pk_transacao
+        description: "Representa a chave primaria de cada transacao."
+        tests:
+          - not_null
+
+      - name: data_transacao
+        description: "Representa a data de cada transacao."
+        tests:
+          - not_null
+      
+      - name: nome_transacao
+        description: "Representa o tipo de cada transacao."
+        tests:
+          - not_null
+
+      - name: valor_transacao
+        description: "Representa o valor de cada transacao."
+        tests:
+          - not_null

@@ -16,8 +16,8 @@ with CLIENTES as (
     , tr.nome_transacao
     , tr.valor_transacao
 
-    from {{ref("clientes")}} cli
-    left join {{ref('contas')}} con on cli.pk_cliente = con.fk_cliente
-    left join {{ref('transacoes')}} tr on con.pk_conta = tr.fk_conta
+    from {{ref("stg_clientes")}} cli
+    left join {{ref('stg_contas')}} con on cli.pk_cliente = con.fk_cliente
+    left join {{ref('stg_transacoes')}} tr on con.pk_conta = tr.fk_conta
 )
 select * from CLIENTES
