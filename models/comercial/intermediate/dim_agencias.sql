@@ -9,9 +9,9 @@
     , ca.fk_colaborador
     , col.nome_completo_colaborador
     
-    from {{ref('agencias')}} a
-    left join {{ref('colaborador_agencia')}} ca on a.pk_agencia = ca.fk_agencia
-    left join {{ref('colaboradores')}} col on ca.fk_colaborador = col.pk_colaborador
+    from {{ref('stg_agencias')}} a
+    left join {{ref('stg_colaborador_agencia')}} ca on a.pk_agencia = ca.fk_agencia
+    left join {{ref('stg_colaboradores')}} col on ca.fk_colaborador = col.pk_colaborador
 
 )
 select * from AGENCIAS

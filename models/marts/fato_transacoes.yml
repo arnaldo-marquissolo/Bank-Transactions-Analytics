@@ -1,0 +1,50 @@
+version: 2
+models:
+  - name: fato_transacoes
+    description: >
+      Tabela de dados relacionados a datas, transacoes, cambio, agencias e clientes.
+    columns:
+      - name: pk_transacao
+        description: Chave primária da tabela.
+        tests:
+          - unique
+          - not_null
+
+      - name: data_transcao
+        description: "Data da transacao."
+
+      - name: valor_transacao
+        description: "Chave com os valores das transacoes."
+
+      - name: valor_cambio
+        description: "Representa o cambio ao longo do tempo."
+
+      - name: nome_transacao
+        description: "Representa o tipo de transacao."
+
+      - name: tipo_conta
+        description: "Representa o tipo de conta."
+
+      - name: fk_cliente
+        description: "Chave estrangeira referenciando o cliente."
+      
+      - name: data_de_nascimento_do_cliente
+        description: "Representa data de nascimento de cada cliente."
+
+      - name: nome_completo_cliente
+        description: "Representa o nome completo."
+
+      - name: fk_agencia
+        description: "Chave estrangeira referenciando as agencias."
+      
+      - name: nome_da_agencia
+        description: "Representa o nome de cada agencia."
+      
+      - name: cidade
+        description: "Representa a cidade da agencia."
+
+      - name: estado
+        description: "Representa o estado da agencia."
+
+      - name: tipo_agencia
+        description: "Representa o tipo de agencia."

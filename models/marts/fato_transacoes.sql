@@ -5,7 +5,7 @@ with transacoes as (
         , tr.fk_conta
         , tr.valor_transacao
         , tr.nome_transacao
-    from {{ref('transacoes')}} tr
+    from {{ref('stg_transacoes')}} tr
 )
 , clientes as (
     select
@@ -16,7 +16,7 @@ with transacoes as (
     , cli.tipo_conta
     , con.fk_agencia
     from {{ref('dim_clientes')}} cli
-    left join {{ref('contas')}} con on cli.pk_cliente = con.fk_cliente
+    left join {{ref('stg_contas')}} con on cli.pk_cliente = con.fk_cliente
 )
 , agencias as (
     select 
@@ -31,7 +31,7 @@ with transacoes as (
     select
     cb.data_cambio
     , cb.valor_cambio
-    from {{ref('ptax')}} cb
+    from {{ref('stg_ptax')}} cb
 )
 select
     tr.pk_transacao

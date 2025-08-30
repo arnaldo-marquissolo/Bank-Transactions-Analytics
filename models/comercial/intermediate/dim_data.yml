@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: dim_data
+    description: "Dimensão relacionada as datas e transacoes, incluindo cambio ao longo do tempo."
+    columns:
+      - name: pk_transacao
+        description: "Representa a chave primaria para buscar a transacao."
+        tests:
+          - unique
+          - not_null
+
+      - name: fk_transacao
+        description: "Representa a chave de cada transacao."
+        tests: 
+          - not_null
+
+      - name: data_transacao
+        description: "Representa a data de cada transacao."
+        tests:
+          - not_null
+
+      - name: nome_transacao
+        description: "Representa o nome de cada transacao."
+        tests:
+          - not_null
+
+      - name: valor_transacao
+        description: "Representa o valor de cada transacao."
+        tests:
+          - not_null
+      
+      - name: valor_cambio
+        description: "Representa a taxa de cambio para cada periodo."
+        tests:
+          - not_null
