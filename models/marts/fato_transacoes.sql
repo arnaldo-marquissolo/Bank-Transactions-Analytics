@@ -1,14 +1,22 @@
 with transacoes as (
-    select
+    select 
         tr.pk_transacao
         , cast(tr.data_transacao as date) as data_transacao
         , tr.fk_conta
         , tr.valor_transacao
         , tr.nome_transacao
+        , cb.valor_cambio
+        , row_number() over (partition by tr.pk_transacao order by cb.data_cambio desc) as rn
     from {{ref('stg_transacoes')}} tr
+    left join {{ ref('stg_ptax') }} cb on cb.data_cambio <= tr.data_transacao
+)
+, transacoes_dedup as (
+    select *
+    from transacoes
+    qualify rn = 1
 )
 , clientes as (
-    select
+    select distinct 
     cli.pk_cliente
     , cli.nome_completo_cliente
     , cli.data_de_nascimento_cliente
@@ -19,7 +27,7 @@ with transacoes as (
     left join {{ref('stg_contas')}} con on cli.pk_cliente = con.fk_cliente
 )
 , agencias as (
-    select 
+    select distinct
     ag.pk_agencia
     , ag.nome_da_agencia
     , ag.cidade
@@ -27,17 +35,11 @@ with transacoes as (
     , ag.tipo_de_agencia
     from {{ref('dim_agencias')}} ag
 )
-, cambio as (
-    select
-    cb.data_cambio
-    , cb.valor_cambio
-    from {{ref('stg_ptax')}} cb
-)
 select
     tr.pk_transacao
     , tr.data_transacao
     , tr.valor_transacao
-    , cb.valor_cambio
+    , tr.valor_cambio
     , tr.nome_transacao
     , cli.tipo_conta
     , cli.pk_cliente as fk_cliente
@@ -49,7 +51,6 @@ select
     , ag.estado
     , ag.tipo_de_agencia
 
-from transacoes tr
+from transacoes_dedup tr
 left join clientes cli on tr.fk_conta = cli.pk_conta
 left join agencias ag on cli.fk_agencia = ag.pk_agencia
-left join cambio cb on tr.data_transacao = cb.data_cambio
