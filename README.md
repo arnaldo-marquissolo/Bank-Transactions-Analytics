@@ -1,12 +1,10 @@
-# Bank Transactions Analytics
+Bank Transactions Analytics
 
 Projeto de análise de dados baseado em transações bancárias de um banco fictício chamado **Banco Vitória**.
 
 O objetivo foi desenvolver um dashboard analítico para compreender o comportamento transacional de clientes e o desempenho das agências ao longo do tempo.
 
----
-
-# Objetivo do Projeto
+Objetivo do Projeto
 
 Analisar dados de transações bancárias para responder perguntas relacionadas a:
 
@@ -17,11 +15,9 @@ Analisar dados de transações bancárias para responder perguntas relacionadas 
 - tendências temporais
 - relação com fatores macroeconômicos
 
----
+Principais Análises
 
-# Principais Análises
-
-### 1️⃣ Indicadores Gerais de Transações
+Indicadores Gerais de Transações
 
 Dashboard com métricas principais:
 
@@ -37,9 +33,7 @@ Segmentado por:
 - idade do cliente
 - tipo de agência
 
----
-
-### 2️⃣ Comparação de Meses Pares vs Ímpares
+Comparação de Meses Pares vs Ímpares
 
 Análise da média de:
 
@@ -48,9 +42,7 @@ Análise da média de:
 
 Comparando meses pares e ímpares ao longo dos anos.
 
----
-
-### 3️⃣ Ranking de Agências
+Ranking de Agências
 
 Identificação de:
 
@@ -62,28 +54,23 @@ Considerando:
 - volume de transações
 - número de transações
 
----
-
-### 4️⃣ Relação com a Variação do Dólar
+Relação com a Variação do Dólar
 
 Análise da relação entre:
 
 - volume de transações
 - número de transações
 
-comparado com a **variação do câmbio do dólar entre 2010 e 2024**.
+comparado com a variação do câmbio do dólar entre 2010 e 2024.
 
----
-
-# Ferramentas Utilizadas
+Ferramentas Utilizadas
 
 - SQL
-- Data Analysis
+- dbt
+- Data Modeling
 - Business Intelligence
-- Power BI
+- Dashboard Analytics
 
----
-
-# Insights Gerados
+Insights Gerados
 
 O projeto permitiu analisar padrões de comportamento transacional, identificar agências com melhor desempenho e avaliar possíveis relações entre atividade financeira e variações macroeconômicas.
